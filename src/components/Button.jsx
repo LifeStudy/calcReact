@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react'
+import '../Styles/Button.css'
 
-// import { Container } from './styles';
-
-export default class Button extends Component {
-  render() {
-    return(
-        <div>
-            Button
-        </div>
-    );
-  }
+export default props => {
+    let classes = 'button '
+    classes += props.operation ? 'operation' : ''
+    classes += props.double ? 'double' : ''
+    classes += props.triple ? 'triple' : ''
+    
+    return (
+        <button 
+            onClick={e => props.click && props.click(props.label)}
+            className={classes}>
+            {props.label}
+        </button>
+    )
 }
